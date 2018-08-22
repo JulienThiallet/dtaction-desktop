@@ -10,36 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Dtaction_desktop
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Signup.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Signup : Window
     {
-        public MainWindow()
+        public Signup()
         {
             InitializeComponent();
         }
 
-        private void Button_Login_Click(object sender, RoutedEventArgs e)
+        private void Button_SignUp_Click (object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            LaListe liste = new LaListe();
             this.Close();
-            login.Show();
+            liste.Show();
         }
 
-        private void Button_SignUp_Click(object sender, RoutedEventArgs e)
+        private void Button_Cancel_Click (object sender, RoutedEventArgs e)
         {
-            Signup signup = new Signup();
+            MainWindow main = new MainWindow();
             this.Close();
-            signup.Show();
+            main.Show();
         }
-
-
     }
-
 }
