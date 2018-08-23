@@ -63,6 +63,9 @@
     <Compile Include="Signup.xaml.cs">
       <DependentUpon>Signup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Task.cs" />
+    <Compile Include="ToDoList.cs" />
+    <Compile Include="User.cs" />
     <Page Include="LaListe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
