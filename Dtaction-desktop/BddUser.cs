@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dtaction_desktop
 {
-    public class Task
+    class BddUser
     {
-        public int IdTask { get; set; }
-
-        public string Content { get; set; }
+        public static List<User> userList = new List<User>();
     }
 }

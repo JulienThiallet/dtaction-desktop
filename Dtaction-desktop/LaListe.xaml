@@ -9,8 +9,28 @@
     <Grid>
         <StackPanel>
             <TextBox>Titre de ma liste</TextBox>
-            <ListView>
-           
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="textBox1" VerticalAlignment="Top" Width="127" />
+            <Button Height="23" Margin="140,14,0,0" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="add_Click">
+                Add Item
+            </Button>
+            <Button Height="23" Margin="140,14,0,0" Name="DeleteButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="DeleteButton_Click">
+                Delete Item
+            </Button>
+            <Button Height="23" Margin="140,14,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="up_click">
+                Up
+            </Button>
+            <Button Height="23" Margin="140,14,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="down_click">
+                Down
+            </Button>
+            <Button Height="23" Margin="140,14,0,0" Name="EditButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="edit_click">
+                Edit Item
+            </Button>
+            <ListView Name="listBox1" Height="200">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn  Header="tasks" Width="200" DisplayMemberBinding="{Binding Content}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
             </ListView>
         </StackPanel>
     </Grid>

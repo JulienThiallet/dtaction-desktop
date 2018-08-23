@@ -15,27 +15,19 @@ using System.Windows.Shapes;
 namespace Dtaction_desktop
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for editTask.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class editTask : Window
     {
-        public Login()
+        public editTask(Task selectedTask)
         {
             InitializeComponent();
+            textBox1.Text = selectedTask.Content;
         }
 
-        private void Button_Login_Click(object sender, RoutedEventArgs e)
+        public void button_cancel_click(object sender, RoutedEventArgs e)
         {
-            LaListe liste = new LaListe();
-            liste.Show();
             this.Close();
-        }
-
-        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow main = new MainWindow();
-            this.Close();
-            main.Show();
         }
     }
 }
