@@ -21,3 +21,7 @@ C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\LaLi
 C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\LaListe.baml
 C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\editTask.g.cs
 C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\editTask.baml
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\NoItemSelected.g.cs
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\NoItemSelected.baml
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\EmptyField.g.cs
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\EmptyField.baml

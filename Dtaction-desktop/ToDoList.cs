@@ -8,8 +8,10 @@ namespace Dtaction_desktop
 {
     public class ToDoList
     {
-        public static int IdToDo { get; set; }
-        public static string Title { get; set; }
-        public static List<Task> Tasks = new List<Task>();
+        public int IdUser { get; set; }
+        public int IdList { get; set; }
+        public string Title { get; set; }
+        public int PositionList { get; set; }
+        public List<Task> Tasks = new List<Task>();
     }
 }

@@ -58,11 +58,17 @@
     <Compile Include="editTask.xaml.cs">
       <DependentUpon>editTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmptyField.xaml.cs">
+      <DependentUpon>EmptyField.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LaListe.xaml.cs">
       <DependentUpon>LaListe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoItemSelected.xaml.cs">
+      <DependentUpon>NoItemSelected.xaml</DependentUpon>
     </Compile>
     <Compile Include="Signup.xaml.cs">
       <DependentUpon>Signup.xaml</DependentUpon>
@@ -71,6 +77,10 @@
     <Compile Include="ToDoList.cs" />
     <Compile Include="User.cs" />
     <Page Include="editTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmptyField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,6 +104,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NoItemSelected.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Signup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

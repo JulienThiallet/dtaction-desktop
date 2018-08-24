@@ -20,61 +20,106 @@ namespace Dtaction_desktop
     /// </summary>
     public partial class LaListe : Window
     {
+        private ToDoList List = new ToDoList();
         private ObservableCollection<Task> ListItems = new ObservableCollection<Task>();
 
         public LaListe()
         {
             InitializeComponent();
+            List.IdList = 1;
+            textboxtitlelist.Text = List.Title;
             listBox1.ItemsSource = this.ListItems;
+            
         }
-
+        
         private void add_Click(object sender, RoutedEventArgs e)
 
         {
-            Task newTask = new Task {Content = textBox1.Text };
-            ListItems.Add(newTask);
+            string messagetest = textBox1.Text.Trim(' '); 
+            if (messagetest != "")
+            {
+                Task newTask = new Task { Content = textBox1.Text, IdListTask = List.IdList, PositionTask = ListItems.Count };
+                ListItems.Add(newTask);
+                textBox1.Text = "";
+            }
+            else
+            {
+                EmptyField error = new EmptyField("Empty field !");
+                error.ShowDialog();
+                textBox1.Text = "";
+            }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
 
         {
+            if (listBox1.SelectedItem != null)
+            {
                 ListItems.RemoveAt(listBox1.SelectedIndex);
+            }
+            else
+            {
+                NoItemSelected error = new NoItemSelected();
+                error.ShowDialog();
+            }
         }
 
         private void up_click(object sender, RoutedEventArgs e)
         {
-            var selectedIndex = listBox1.SelectedIndex;
-
-            if (selectedIndex > 0)
+            if (listBox1.SelectedItem != null)
             {
-                var itemToMoveUp = this.ListItems[selectedIndex];
-                ListItems.RemoveAt(selectedIndex);
-                this.ListItems.Insert(selectedIndex - 1, itemToMoveUp);
-                this.listBox1.SelectedIndex = selectedIndex - 1;
+                var selectedIndex = listBox1.SelectedIndex;
+
+                if (selectedIndex > 0)
+                {
+                    var itemToMoveUp = this.ListItems[selectedIndex];
+                    ListItems.RemoveAt(selectedIndex);
+                    this.ListItems.Insert(selectedIndex - 1, itemToMoveUp);
+                    this.listBox1.SelectedIndex = selectedIndex - 1;
+                }
+            }
+            else
+            {
+                NoItemSelected error = new NoItemSelected();
+                error.ShowDialog();
             }
         }
 
         private void down_click(object sender, RoutedEventArgs e)
         {
-            var selectedIndex = this.listBox1.SelectedIndex;
-
-            if (selectedIndex + 1 < this.ListItems.Count)
+            if (listBox1.SelectedItem != null)
             {
-                var itemToMoveDown = this.ListItems[selectedIndex];
-                this.ListItems.RemoveAt(selectedIndex);
-                this.ListItems.Insert(selectedIndex + 1, itemToMoveDown);
-                this.listBox1.SelectedIndex = selectedIndex + 1;
+                var selectedIndex = this.listBox1.SelectedIndex;
+
+                if (selectedIndex + 1 < this.ListItems.Count)
+                {
+                    var itemToMoveDown = this.ListItems[selectedIndex];
+                    this.ListItems.RemoveAt(selectedIndex);
+                    this.ListItems.Insert(selectedIndex + 1, itemToMoveDown);
+                    this.listBox1.SelectedIndex = selectedIndex + 1;
+                }
+            }
+            else
+            {
+                NoItemSelected error = new NoItemSelected();
+                error.ShowDialog();
             }
         }
 
         private void edit_click(object sender, RoutedEventArgs e)
         {
-            Task selectedItem = this.listBox1.SelectedItem as Task;
-
-            editTask Task = new editTask(selectedItem);
-            Task.ShowDialog();
-
-
+            if (listBox1.SelectedItem != null)
+            {
+                Task selectedItem = this.listBox1.SelectedItem as Task;
+                editTask Task = new editTask(selectedItem);
+                Task.ShowDialog();
+                listBox1.Items.Refresh();
+            }
+            else
+            {
+                NoItemSelected error = new NoItemSelected();
+                error.ShowDialog();
+            }
         }
     }
 }

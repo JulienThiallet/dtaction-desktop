@@ -10,7 +10,7 @@
         <StackPanel>
             <TextBlock HorizontalAlignment="Center">Modification de la tâche</TextBlock>
             <TextBox Height="23" HorizontalAlignment="Center" Margin="8,14,0,0" Name="textBox1" VerticalAlignment="Top" Width="127" />
-            <Button Width="100">Valider</Button>
+            <Button Width="100" Click="button_valider_click">Valider</Button>
             <Button Width="100" Click="button_cancel_click">Cancel</Button>
         </StackPanel>
         

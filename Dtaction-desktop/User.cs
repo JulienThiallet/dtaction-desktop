@@ -13,5 +13,6 @@ namespace Dtaction_desktop
         public string Email { get; set; }
         public string Password { get; set; }
         public string Image { get; set; }
+        public List<ToDoList> ToDoLists = new List<ToDoList>();
     }
 }

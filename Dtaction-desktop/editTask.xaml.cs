@@ -19,14 +19,23 @@ namespace Dtaction_desktop
     /// </summary>
     public partial class editTask : Window
     {
+        private Task selectedtask { get; set; }
+
         public editTask(Task selectedTask)
         {
             InitializeComponent();
             textBox1.Text = selectedTask.Content;
+            selectedtask = selectedTask;
         }
 
         public void button_cancel_click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        public void button_valider_click(object sender, RoutedEventArgs e)
+        {
+            selectedtask.Content = textBox1.Text;
             this.Close();
         }
     }

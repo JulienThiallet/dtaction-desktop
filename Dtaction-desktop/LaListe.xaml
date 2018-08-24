@@ -8,7 +8,7 @@
         Title="LaListe" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBox>Titre de ma liste</TextBox>
+            <TextBox Name="textboxtitlelist">Titre de ma liste</TextBox>
             <TextBox Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="textBox1" VerticalAlignment="Top" Width="127" />
             <Button Height="23" Margin="140,14,0,0" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="add_Click">
                 Add Item

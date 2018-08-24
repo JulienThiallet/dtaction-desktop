@@ -9,13 +9,13 @@
     <Grid Name="MainGrid" Background="Gray">
         <StackPanel>
             <TextBlock Width="200">Username</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <TextBox Name="textboxUsername" Width="200"></TextBox>
             <TextBlock Width="200">Email</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <TextBox Name="textboxEmail" Width="200"></TextBox>
             <TextBlock Width="200">Password</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <PasswordBox Name="textboxPassword" Width="200"></PasswordBox>
             <TextBlock Width="200">Confirmation Password</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <PasswordBox Name="textboxConfirmationPassword" Width="200"></PasswordBox>
             <Button Click="Button_SignUp_Click" Width="100">Sign Up</Button>
             <Button Click="Button_Cancel_Click" Width="100">Cancel</Button>
         </StackPanel>
