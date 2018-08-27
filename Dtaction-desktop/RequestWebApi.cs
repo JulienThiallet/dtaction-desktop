@@ -28,5 +28,22 @@ namespace Dtaction_desktop
             }
             return null;
         }
+
+        public static List<ToDoList> GetToDoList(int IdUser)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync($"api/getbyuser/{IdUser}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                List<ToDoList> todolist = null;
+                todolist = response.Content.ReadAsAsync<IEnumerable<ToDoList>>().Result.ToList();
+                return todolist;
+            }
+            return null;
+        }
     }
 }

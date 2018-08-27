@@ -61,6 +61,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BddUser.cs" />
+    <Compile Include="CurrentUser.cs" />
     <Compile Include="editTask.xaml.cs">
       <DependentUpon>editTask.xaml</DependentUpon>
     </Compile>

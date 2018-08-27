@@ -29,6 +29,7 @@ namespace Dtaction_desktop
             var test = RequestWebApi.GetUser(TBUsername.Text, PBPsw.Password.ToString());
             if (test != null)
             {
+                CurrentUser.currentUser = test;
                 LaListe liste = new LaListe();
                 liste.Show();
                 this.Close();

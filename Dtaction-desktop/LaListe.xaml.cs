@@ -26,9 +26,9 @@ namespace Dtaction_desktop
         public LaListe()
         {
             InitializeComponent();
-            List.Id = 1;
-            textboxtitlelist.Text = List.Title;
-            listBox1.ItemsSource = this.ListItems;
+            var todolist = RequestWebApi.GetToDoList(CurrentUser.currentUser.Id).FirstOrDefault();
+            textboxtitlelist.Text = todolist.Title;
+            //listBox1.ItemsSource = ListItems;
             
         }
         
