@@ -8,12 +8,9 @@ namespace Dtaction_desktop
 {
     public class Task
     {
-        public int IdTask { get; set; }
-
-        public int IdListTask { get; set; }
-
+        public int Id { get; set; }
         public string Content { get; set; }
-
-        public int PositionTask { get; set; }
+        public int Position { get; set; }
+        public int IdList { get; set; }
     }
 }

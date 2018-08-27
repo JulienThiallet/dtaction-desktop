@@ -26,7 +26,7 @@ namespace Dtaction_desktop
         public LaListe()
         {
             InitializeComponent();
-            List.IdList = 1;
+            List.Id = 1;
             textboxtitlelist.Text = List.Title;
             listBox1.ItemsSource = this.ListItems;
             
@@ -38,7 +38,7 @@ namespace Dtaction_desktop
             string messagetest = textBox1.Text.Trim(' '); 
             if (messagetest != "")
             {
-                Task newTask = new Task { Content = textBox1.Text, IdListTask = List.IdList, PositionTask = ListItems.Count };
+                Task newTask = new Task { Content = textBox1.Text, IdList = List.Id, Position = ListItems.Count };
                 ListItems.Add(newTask);
                 textBox1.Text = "";
             }

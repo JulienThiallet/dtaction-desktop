@@ -25,3 +25,8 @@ C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\NoIt
 C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\NoItemSelected.baml
 C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\EmptyField.g.cs
 C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\EmptyField.baml
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Diginamic\source\repos\Dtaction-desktop\Dtaction-desktop\obj\Debug\Dtaction-desktop.csproj.CopyComplete

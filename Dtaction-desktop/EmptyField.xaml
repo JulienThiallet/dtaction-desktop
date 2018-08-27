@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dtaction_desktop"
         mc:Ignorable="d"
-        Title="EmptyField" Height="100" Width="200">
+        Title="EmptyField" Height="100" Width="400">
     <Grid>
         <StackPanel Background="Gray">
             <TextBlock Name="TextblockEmptyField" HorizontalAlignment="Center" Margin="0 20 0 0" ></TextBlock>

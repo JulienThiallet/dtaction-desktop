@@ -23,14 +23,15 @@ namespace Dtaction_desktop
         public Signup()
         {
             InitializeComponent();
+            BddUser.userList.Add(new User { Pseudo = "Toto", Email = "jaja@jaja.com", Psw = "jesuislemdp" });
         }
 
-        private void Button_SignUp_Click (object sender, RoutedEventArgs e)
+        private void Button_SignUp_Click(object sender, RoutedEventArgs e)
         {
             string strEMail = textboxEmail.Text;
 
             bool isMailValid = false;
-            
+
             try
             {
                 var addr = new MailAddress(strEMail);
@@ -42,36 +43,27 @@ namespace Dtaction_desktop
             {
                 isMailValid = false;
             }
-            
 
             if (textboxUsername.Text.Trim(' ') != ""
-                && textboxUsername.Text.Length >= 4
-                && textboxUsername.Text.Length <= 20
-                && textboxEmail.Text.Trim(' ') != ""
-                && isMailValid
-                && textboxPassword.ToString() == textboxConfirmationPassword.ToString()
-                && textboxPassword.ToString().Trim(' ') != ""
-                && textboxPassword.ToString().Length >= 6)
+                    && textboxUsername.Text.Length >= 4
+                    && textboxUsername.Text.Length <= 20
+                    && textboxEmail.Text.Trim(' ') != ""
+                    && isMailValid
+                    && textboxPassword.Password.ToString() == textboxConfirmationPassword.Password.ToString()
+                    && textboxPassword.Password.ToString().Trim(' ') != ""
+                    && textboxPassword.Password.ToString().Length >= 6)
             {
-                User newUser = new User { Username = textboxUsername.Text, Email = textboxEmail.Text, Password = textboxPassword.ToString() };
-                LaListe liste = new LaListe();
-                Console.WriteLine(newUser.Email);
-                this.Close();
-                liste.Show();
+                User newUser = new User { Pseudo = textboxUsername.Text, Email = textboxEmail.Text, Psw = textboxPassword.Password.ToString() };
+                if (!VerifBdd(newUser))
+                    {
+                        LaListe liste = new LaListe();
+                        this.Close();
+                        liste.Show();
+                    }
             }
-            else if (textboxUsername.Text.Trim(' ') == "" )
+            else if (textboxUsername.Text.Trim(' ') == "")
             {
-               EmptyField emptyField = new EmptyField("Username is empty !");
-               emptyField.ShowDialog();                               
-            }
-            else if (textboxPassword.ToString().Trim(' ') == "")
-            {
-                EmptyField emptyField = new EmptyField("Password is empty !");
-                emptyField.ShowDialog();
-            }
-            else if (textboxEmail.Text.Trim(' ') == "")
-            {
-                EmptyField emptyField = new EmptyField("Email is empty !");
+                EmptyField emptyField = new EmptyField("Username is empty !");
                 emptyField.ShowDialog();
             }
             else if (textboxUsername.Text.Length < 4 || textboxUsername.Text.Length > 20)
@@ -79,18 +71,61 @@ namespace Dtaction_desktop
                 EmptyField emptyField = new EmptyField("Username need to have more than 4 characters and less than 20 characters !");
                 emptyField.ShowDialog();
             }
-            else if (textboxPassword.ToString().Length < 6)
+            else if (textboxEmail.Text.Trim(' ') == "")
+            {
+                EmptyField emptyField = new EmptyField("Email is empty !");
+                emptyField.ShowDialog();
+            }
+            else if (isMailValid == false)
+            {
+                EmptyField emptyField = new EmptyField("Email is not an email !");
+                emptyField.ShowDialog();
+            }
+            else if (textboxPassword.Password.ToString().Trim(' ') == "")
+            {
+                EmptyField emptyField = new EmptyField("Password is empty !");
+                emptyField.ShowDialog();
+            }
+            else if (textboxPassword.Password.ToString().Length < 6)
             {
                 EmptyField emptyField = new EmptyField("Password need to have more than 6 characters !");
                 emptyField.ShowDialog();
             }
+            else if (textboxPassword.Password.ToString() != textboxConfirmationPassword.Password.ToString())
+            {
+                EmptyField emptyField = new EmptyField("Confirmation password need to be the same as password !");
+                emptyField.ShowDialog();
+            }
+
         }
 
-        private void Button_Cancel_Click (object sender, RoutedEventArgs e)
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
             this.Close();
             main.Show();
+        }
+
+        public bool VerifBdd(User newUser)
+        {
+            if (BddUser.userList.FirstOrDefault(u => u.Pseudo == newUser.Pseudo) == null && BddUser.userList.FirstOrDefault(e => e.Email == newUser.Email) == null)
+            {
+                BddUser.userList.Add(newUser);
+                return false;
+            }
+            else if (BddUser.userList.FirstOrDefault(u => u.Pseudo == newUser.Pseudo) != null)
+            {
+                EmptyField emptyField = new EmptyField("Username already exist !");
+                emptyField.ShowDialog();
+                return true;
+            }
+            else if (BddUser.userList.FirstOrDefault(e => e.Email == newUser.Email) != null)
+            {
+                EmptyField emptyField = new EmptyField("Email already exist !");
+                emptyField.ShowDialog();
+                return true;
+            }
+            else return true;
         }
     }
 }

@@ -9,9 +9,9 @@
     <Grid Background="Gray">
         <StackPanel>
             <TextBlock Width="200">Username</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <TextBox Name="TBUsername" Width="200"></TextBox>
             <TextBlock Width="200">Password</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <PasswordBox Name="PBPsw" Width="200"></PasswordBox>
             <Button Click="Button_Login_Click" Width="100">Connect</Button>
             <Button Click="Button_Cancel_Click" Width="100">Cancel</Button>
         </StackPanel>

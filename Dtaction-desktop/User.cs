@@ -9,10 +9,9 @@ namespace Dtaction_desktop
     public class User
     {
         public int Id { get; set; }
-        public string Username { get; set; }
+        public string Pseudo { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
-        public string Image { get; set; }
-        public List<ToDoList> ToDoLists = new List<ToDoList>();
+        public string Psw { get; set; }
+        public string Img { get; set; }
     }
 }

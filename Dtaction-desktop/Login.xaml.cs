@@ -25,10 +25,19 @@ namespace Dtaction_desktop
         }
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
-        {
-            LaListe liste = new LaListe();
-            liste.Show();
-            this.Close();
+        {           
+            var test = RequestWebApi.GetUser(TBUsername.Text, PBPsw.Password.ToString());
+            if (test != null)
+            {
+                LaListe liste = new LaListe();
+                liste.Show();
+                this.Close();
+            }
+            else
+            {
+                EmptyField emptyField = new EmptyField("Username or Password is not valid !");
+                emptyField.ShowDialog();
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
