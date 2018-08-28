@@ -45,6 +45,8 @@ namespace Dtaction_desktop
             if (messagetest != "")
             {
                 Task newTask = new Task { Content = textBox1.Text, IdList = Listprivate.Id, Position = ListItems.Count };
+                RequestWebApi.PostTask(newTask);
+                newTask.Id = RequestWebApi.GetLastTask().Id ;
                 ListItems.Add(newTask);
                 textBox1.Text = "";
             }
@@ -61,7 +63,9 @@ namespace Dtaction_desktop
         {
             if (listBox1.SelectedItem != null)
             {
-                ListItems.RemoveAt(listBox1.SelectedIndex);
+                var itemSelected = listBox1.SelectedIndex;
+                RequestWebApi.DeleteTask(ListItems[itemSelected].Id);
+                ListItems.RemoveAt(itemSelected);
             }
             else
             {

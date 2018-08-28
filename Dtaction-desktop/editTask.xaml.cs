@@ -36,6 +36,7 @@ namespace Dtaction_desktop
         public void button_valider_click(object sender, RoutedEventArgs e)
         {
             selectedtask.Content = textBox1.Text;
+            RequestWebApi.PutTask(selectedtask);
             this.Close();
         }
     }

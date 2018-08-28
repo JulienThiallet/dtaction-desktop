@@ -29,6 +29,57 @@ namespace Dtaction_desktop
             return null;
         }
 
+        public static User GetUserPseudo(string pseudo)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync($"api/user/getbypseudo/{pseudo}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                User user = null;
+                user = response.Content.ReadAsAsync<User>().Result;
+                return user;
+            }
+            return null;
+        }
+
+        public static User GetUserEmail(string email)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync($"api/user/getbyemail/{Email}mail?={mail}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                User user = null;
+                user = response.Content.ReadAsAsync<User>().Result;
+                return user;
+            }
+            return null;
+        }
+
+        public static User PostUser(User newUser)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.PostAsJsonAsync("api/User", newUser).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                User user = null;
+                user = response.Content.ReadAsAsync<User>().Result;
+                return user;
+            }
+            return null;
+        }
+
         public static List<ToDoList> GetToDoList(int IdUser)
         {
             HttpClient client = new HttpClient();
@@ -46,6 +97,40 @@ namespace Dtaction_desktop
             return null;
         }
 
+        public static Task GetTask(int IdTask)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync($"api/Task/{IdTask}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Task task = null;
+                task = response.Content.ReadAsAsync<Task>().Result;
+                return task;
+            }
+            return null;
+        }
+
+        public static Task GetLastTask()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("api/getlasttask").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Task task = null;
+                task = response.Content.ReadAsAsync<Task>().Result;
+                return task;
+            }
+            return null;
+        }
+
         public static List<Task> GetTasks(int IdList)
         {
             HttpClient client = new HttpClient();
@@ -59,6 +144,57 @@ namespace Dtaction_desktop
                 List<Task> tasks = null;
                 tasks = response.Content.ReadAsAsync<IEnumerable<Task>>().Result.ToList();
                 return tasks;
+            }
+            return null;
+        }
+
+        public static Task PutTask(Task Task)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.PutAsJsonAsync("api/Task", Task).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Task task = null;
+                task = response.Content.ReadAsAsync<Task>().Result;
+                return task;
+            }
+            return null;
+        }
+
+        public static Task PostTask(Task newTask)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.PostAsJsonAsync("api/Task", newTask).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Task task = null;
+                task = response.Content.ReadAsAsync<Task>().Result;
+                return task;
+            }
+            return null;
+        }
+
+        public static Task DeleteTask(int id)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.DeleteAsync($"api/Task/{id}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Task task = null;
+                task = response.Content.ReadAsAsync<Task>().Result;
+                return task;
             }
             return null;
         }

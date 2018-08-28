@@ -23,7 +23,6 @@ namespace Dtaction_desktop
         public Signup()
         {
             InitializeComponent();
-            BddUser.userList.Add(new User { Pseudo = "Toto", Email = "jaja@jaja.com", Psw = "jesuislemdp" });
         }
 
         private void Button_SignUp_Click(object sender, RoutedEventArgs e)
@@ -56,7 +55,8 @@ namespace Dtaction_desktop
                 User newUser = new User { Pseudo = textboxUsername.Text, Email = textboxEmail.Text, Psw = textboxPassword.Password.ToString() };
                 if (!VerifBdd(newUser))
                     {
-                        LaListe liste = new LaListe();
+                    CurrentUser.currentUser = newUser;
+                    LaListe liste = new LaListe();
                         this.Close();
                         liste.Show();
                     }
@@ -108,18 +108,20 @@ namespace Dtaction_desktop
 
         public bool VerifBdd(User newUser)
         {
-            if (BddUser.userList.FirstOrDefault(u => u.Pseudo == newUser.Pseudo) == null && BddUser.userList.FirstOrDefault(e => e.Email == newUser.Email) == null)
+            var pseudo = RequestWebApi.GetUserPseudo(newUser.Pseudo);
+            var email = RequestWebApi.GetUserEmail(newUser.Email);
+            if (pseudo == null && email == null)
             {
-                BddUser.userList.Add(newUser);
+                RequestWebApi.PostUser(newUser);
                 return false;
             }
-            else if (BddUser.userList.FirstOrDefault(u => u.Pseudo == newUser.Pseudo) != null)
+            else if (pseudo != null)
             {
                 EmptyField emptyField = new EmptyField("Username already exist !");
                 emptyField.ShowDialog();
                 return true;
             }
-            else if (BddUser.userList.FirstOrDefault(e => e.Email == newUser.Email) != null)
+            else if (email != null)
             {
                 EmptyField emptyField = new EmptyField("Email already exist !");
                 emptyField.ShowDialog();
