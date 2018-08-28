@@ -45,5 +45,22 @@ namespace Dtaction_desktop
             }
             return null;
         }
+
+        public static List<Task> GetTasks(int IdList)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync($"api/getbylist/{IdList}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                List<Task> tasks = null;
+                tasks = response.Content.ReadAsAsync<IEnumerable<Task>>().Result.ToList();
+                return tasks;
+            }
+            return null;
+        }
     }
 }

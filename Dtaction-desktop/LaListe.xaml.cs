@@ -20,7 +20,7 @@ namespace Dtaction_desktop
     /// </summary>
     public partial class LaListe : Window
     {
-        private ToDoList List = new ToDoList();
+        private ToDoList Listprivate = new ToDoList();
         private ObservableCollection<Task> ListItems = new ObservableCollection<Task>();
 
         public LaListe()
@@ -28,8 +28,14 @@ namespace Dtaction_desktop
             InitializeComponent();
             var todolist = RequestWebApi.GetToDoList(CurrentUser.currentUser.Id).FirstOrDefault();
             textboxtitlelist.Text = todolist.Title;
-            //listBox1.ItemsSource = ListItems;
-            
+            Listprivate.Id = todolist.Id;
+            var tasks = RequestWebApi.GetTasks(todolist.Id).ToList();
+
+            //Add list to observable collection
+            foreach (var item in tasks)
+                ListItems.Add(item);
+
+            listBox1.ItemsSource = ListItems;
         }
         
         private void add_Click(object sender, RoutedEventArgs e)
@@ -38,7 +44,7 @@ namespace Dtaction_desktop
             string messagetest = textBox1.Text.Trim(' '); 
             if (messagetest != "")
             {
-                Task newTask = new Task { Content = textBox1.Text, IdList = List.Id, Position = ListItems.Count };
+                Task newTask = new Task { Content = textBox1.Text, IdList = Listprivate.Id, Position = ListItems.Count };
                 ListItems.Add(newTask);
                 textBox1.Text = "";
             }
