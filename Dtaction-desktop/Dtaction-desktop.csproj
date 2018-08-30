@@ -151,5 +151,8 @@
   <ItemGroup>
     <Resource Include="Images\dta_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dta_dc.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

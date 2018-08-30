@@ -30,6 +30,7 @@ namespace Dtaction_desktop
             textboxtitlelist.Text = todolist.Title;
             Listprivate.Id = todolist.Id;
             var tasks = RequestWebApi.GetTasks(todolist.Id).ToList();
+            textblockpseudo.Text = CurrentUser.currentUser.Pseudo;
 
             //Add list to observable collection
             foreach (var item in tasks)
@@ -38,6 +39,13 @@ namespace Dtaction_desktop
             listBox1.ItemsSource = ListItems;
         }
         
+        private void disconnect_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
         private void add_Click(object sender, RoutedEventArgs e)
 
         {

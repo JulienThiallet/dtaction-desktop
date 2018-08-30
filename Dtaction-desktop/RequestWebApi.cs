@@ -52,7 +52,24 @@ namespace Dtaction_desktop
             client.BaseAddress = new Uri(Uri);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = client.GetAsync($"api/user/getbyemail/{Email}mail?={mail}").Result;
+            HttpResponseMessage response = client.PostAsJsonAsync($"api/user/postbyemail?email={email}", email).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                User user = null;
+                user = response.Content.ReadAsAsync<User>().Result;
+                return user;
+            }
+            return null;
+        }
+
+        public static User GetLastUser()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("api/getlastuser").Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -93,6 +110,23 @@ namespace Dtaction_desktop
                 List<ToDoList> todolist = null;
                 todolist = response.Content.ReadAsAsync<IEnumerable<ToDoList>>().Result.ToList();
                 return todolist;
+            }
+            return null;
+        }
+
+        public static ToDoList PostList(ToDoList newList)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Uri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.PostAsJsonAsync("api/List", newList).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                ToDoList newToDoList = null;
+                newToDoList = response.Content.ReadAsAsync<ToDoList>().Result;
+                return newToDoList;
             }
             return null;
         }

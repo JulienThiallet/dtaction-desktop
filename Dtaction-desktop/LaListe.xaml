@@ -5,34 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dtaction_desktop"
         mc:Ignorable="d"
-        Title="LaListe" Height="450" Width="800">
-    <Grid  Background="Gray">
+        Title="LaListe" Height="450" Width="800" Background="#efefef" ResizeMode="NoResize">
+    <Grid>
         <StackPanel>
-            <Border Width="300" BorderThickness="1" BorderBrush="Black">
-                <TextBlock Width="300" Name="textboxtitlelist">Titre de ma liste</TextBlock>
-            </Border>
-            <TextBox Background="Gray" Height="23" HorizontalAlignment="Left" Margin="8,20,0,0" Name="textBox1" VerticalAlignment="Top" Width="127">Tâche à ajouter</TextBox>
             <Grid>
-                <Button Height="23" Margin="10,20,0,30" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="add_Click">
-                    Add Item
-                </Button>
-                <Button Height="23" Margin="96,20,0,0" Name="DeleteButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="DeleteButton_Click">
-                    Delete Item
-                </Button>
-                <Button Height="23" Margin="182,20,0,0" Name="EditButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="edit_click">
-                    Edit Item
-                </Button>
-                <Button Height="23" Margin="268,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="up_click">
-                    Up
-                </Button>
-                <Button Height="23" Margin="354,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="down_click">
-                    Down
+                <Border Width="400" BorderThickness="3" BorderBrush="Red">
+                    <TextBlock FontWeight="Bold" FontSize="30" TextAlignment="Center" Width="300" Name="textboxtitlelist"></TextBlock>
+                </Border>
+                <TextBlock Margin="570 15 0 0" Foreground="Red" FontWeight="Bold" FontSize="15" TextAlignment="Right" Width="90" Name="textblockpseudo"></TextBlock>
+                <Button Background="#efefef" Click="disconnect_Button_Click"  HorizontalAlignment="Right" Width="50">
+                    <StackPanel>
+                        <Image Source="./Images/dta_dc.png"></Image>
+                    </StackPanel>
                 </Button>
             </Grid>
-            <ListView Background="Gray" Name="listBox1" Height="200">
+            <TextBox BorderBrush="Red" BorderThickness="2" Background="White" Height="23" HorizontalAlignment="Left" Margin="8,20,0,0" Name="textBox1" VerticalAlignment="Top" Width="127">
+                Task to add
+            </TextBox>
+            <Grid>
+                <Button BorderBrush="Red" BorderThickness="2" Height="23" Margin="10,20,0,30" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="add_Click">
+                    Add Item
+                </Button>
+                <Button BorderBrush="Red" BorderThickness="2" Height="23" Margin="96,20,0,0" Name="DeleteButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="DeleteButton_Click">
+                    Delete Item
+                </Button>
+                <Button BorderBrush="Red" BorderThickness="2" Height="23" Margin="182,20,0,0" Name="EditButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="edit_click">
+                    Edit Item
+                </Button>
+                <!--<Button BorderBrush="Red" Height="23" Margin="268,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="up_click">
+                    Up
+                </Button>
+                <Button BorderBrush="Red" Height="23" Margin="354,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="down_click">
+                    Down
+                </Button>-->
+            </Grid>
+            <ListView Background="White" BorderBrush="Red" BorderThickness="2" Name="listBox1" Height="255">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="tasks" Width="200" DisplayMemberBinding="{Binding Content}"></GridViewColumn>
+                        <GridViewColumn Header="Tasks" Width="800" DisplayMemberBinding="{Binding Content}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

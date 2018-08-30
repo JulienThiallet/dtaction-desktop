@@ -55,7 +55,8 @@ namespace Dtaction_desktop
                 User newUser = new User { Pseudo = textboxUsername.Text, Email = textboxEmail.Text, Psw = textboxPassword.Password.ToString() };
                 if (!VerifBdd(newUser))
                     {
-                    CurrentUser.currentUser = newUser;
+                    CurrentUser.currentUser = RequestWebApi.GetLastUser();
+                    RequestWebApi.PostList(new ToDoList { IdUser = CurrentUser.currentUser.Id, Title = "Title of my list" });
                     LaListe liste = new LaListe();
                         this.Close();
                         liste.Show();
