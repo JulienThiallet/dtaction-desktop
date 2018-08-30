@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dtaction_desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="700" Background="#efefef">
+        Title="DTAction" Height="350" Width="700" Background="#efefef">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Name="MainStackpanel">
         <Image Source="./Images/dta_logo.png" Width="200" Margin="0 00 0 0"></Image>
         <TextBlock FontWeight="Bold" FontSize="18" Width="580" Height="50" Margin="0 20 0 0" TextWrapping="Wrap" TextAlignment="Center">Bienvenue sur DTAction le meilleur gestionnaire de liste du marché.<LineBreak/> Bien meilleur que celui de l'autre groupe.</TextBlock>
