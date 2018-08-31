@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LOGO-DTA-vectorisé.ico</ApplicationIcon>
+    <ApplicationIcon>aresize_0Hb_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -159,6 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LOGO-DTA-vectorisé.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="aresize_0Hb_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="aresize_W84_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

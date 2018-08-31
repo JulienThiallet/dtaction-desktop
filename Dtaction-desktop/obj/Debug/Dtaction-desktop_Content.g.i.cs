@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo-dta-vectoris%c3%a9.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("aresize_w84_icon.ico")]
 
 
